@@ -1,6 +1,7 @@
 # AWS Cloud Practitioner Notes
 
-## Module 1: Core AWS Services & Frameworks
+### Module 1: 
+## Core AWS Services & Frameworks
 
 ### Management and Governance Services
 - **AWS Trust Advisor** - Provides real-time guidance to help provision resources following AWS best practices
@@ -63,7 +64,8 @@ AWS CAF provides guidance and helps organizations build a comprehensive approach
 
 ---
 
-## Module 2: AWS Organizations
+### Module 2: 
+## AWS Organizations
 
 ### Introduction to AWS Organizations
 AWS Organizations helps centrally govern multiple AWS accounts.
@@ -73,3 +75,23 @@ AWS Organizations helps centrally govern multiple AWS accounts.
 - **Controlled access** to AWS services
 - **Automated AWS account** creation and management
 - **Consolidated billing** across multiple AWS accounts
+
+## AWS Billing and Cost Management
+- **AWS Billing Dashboard:** Lets u view the status of your month-to-date AWS expenditure, identify the services that account for the majority of your overall expenditure, and understand at a high level costs are trending.
+- **AWS Budget:** uses the cost visualization that is provided by cost explorer to show you the status of your budgets and provide forecasts of your estimated costs
+- **AWS Cost and Usage Report:** enables you to identify opportunities for optimization by understanding your cost and usage data trends and how you are using your AWS Implementation
+- **AWS Cost Explorer:** Includes a default report that visualizes your costs and usage for top cost-incurring AWS services. The monthly running costs report gives you an overview of all your costs for the past 3 months.
+
+## AWS Support
+- **Proactive guidance:** Technical Account Manager(TAM):Provide guidance, architectural review, and continuous ongoing communication to keep you informed and prepared as you plan, deploy and optimize your solution.
+- **Best Prcatices:** AWS Trust Advisor:ensure that you best practice to increase performance and fault tolerance in the aws enviroment (customized cloud expert)
+- **Account assistance:** AWS Support Concierge: A billing expert who provide quick analysis on billing and account issues.
+
+## Support Plan
+# Support plan offers four support plans:
+- **Basic Support:** Resource Center access, Service Health Dashboard, product FAQs, Discussion forums, and support for health checks
+- **Developer Support:** Support for early development on aws
+- **Business Support:** Customers that run production workloads
+- **Enterprise Support:** Customers that run business and mission-critical workloads
+
+
