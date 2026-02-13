@@ -94,4 +94,19 @@ AWS Organizations helps centrally govern multiple AWS accounts.
 - **Business Support:** Customers that run production workloads
 - **Enterprise Support:** Customers that run business and mission-critical workloads
 
+# Module 4:
+## AWS Shared Responsibility Model
+- **Customer:** platefrom, application, identity and access management, operating system, network, firewalls configuration client side server encryption and data integrity authentication, server side encryption, network traffic protection
+- **AWS:** software, compute, storage, Database, networking, hardware, regions, availability zones, edge locations
+
+
+## AWS Identity and Access Management (IAM)
+
+- **IAM user:** person or application that can authenticate with aws account.
+- **IAM Group:** A collection of iam users that are granted identical authorization.
+- **IAM Policy:** The document that defines which resources can be accessed and the travel of access to each resource
+- **IAM Role:** useful mechanism to grant a set of permissions for making aws servie=ce requests.
+
+important note : iam mfa : in additional yo uset name and password, mfa requires a unique, authentication code to access aws services.
+
 
