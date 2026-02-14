@@ -111,3 +111,11 @@ A VPC is a logically isolated section of the AWS cloud where you can launch AWS 
 ### Global Content Delivery
 - **Amazon Route 53:** A highly available and scalable Domain Name System (DNS) web service. It translates human-readable domain names (like example.com) into IP addresses used by computers to connect.
 - **Amazon CloudFront:** A fast, global content delivery network (CDN) service. It securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds by using a network of edge locations.
+### Route 53 supported routing:
+- **Simple routing(round routing):**Use single-server environments
+- **Weighted round robin routing:**Assign weights to resource record sets to specify the frequency
+- **Latency routing:**Help improve your global applications
+- **Geolocation:**Route traffic based on location of users
+- **Geoproximity routing:**route traffic based on location of your resources
+- **Failover routing:**fail over to a backup site if your primary site becomes unreachable
+- **Multivalue answer routing**respond to dns queries with up to eight healthy records selected at random
