@@ -119,3 +119,9 @@ A VPC is a logically isolated section of the AWS cloud where you can launch AWS 
 - **Geoproximity routing:**route traffic based on location of your resources
 - **Failover routing:**fail over to a backup site if your primary site becomes unreachable
 - **Multivalue answer routing**respond to dns queries with up to eight healthy records selected at random
+
+### CloudFront: fast, global, and secure CDN service - Global network of edge locations and reglional edge caches - self-service model - pay as you go pricing
+
+- **Edge locations:** network of data centers that cloudfront use to serve popular content quickly to customers.
+- **Reglional edge cachesl:**Cloud front locations that caches content that is not popular enough to stay in edge location. 
+- it is located between the origin server and the global edge location.
