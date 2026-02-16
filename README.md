@@ -314,21 +314,51 @@ A managed repository for serverless applications.
 8. Security group
 9. Key pair
 
-### EC2 Pricing Models
-
-| Model | Description | Use Case |
-|-------|-------------|----------|
-| **On-Demand** | Pay by the hour/second, no commitment | Short-term, irregular workloads |
-| **Savings Plans** | Low price for 1- or 3-year commitment to consistent usage ($/hour) | Predictable workloads with flexibility |
-| **Reserved Instances** | Low price for 1- or 3-year commitment to specific instance family in specific region | Steady-state workloads |
-| **Spot Instances** | Request unused EC2 capacity, save up to 90%, can be interrupted with 2-minute warning | Fault-tolerant or stateless workloads |
-| **Dedicated Hosts** | Physical server dedicated for your use | Server-bound software licensing requirements |
 
 ### Elastic IP Address
 
 A static, public IPv4 address that can be allocated to your account and remapped.
 
 **Key difference from public IP**: Public IPs change when an instance stops and starts; Elastic IPs are static and remain with your account until you release them.
+
+**Use Amazon Cloud Watch for montitoring your EC2 instances:**
+- provides near-real-time metrics
+- provides charts in the amazon EC2 console montoring tab that you can view.
+- maintains 15 months of historical data.
+
+## Amazing EC2 pricing models:
+
+- **On-Demand Instances:**
+- pay by the hour
+- no long term commitments
+- eligible for the AWS FREE TIER
+- **Reserved Instances:**
+- full, partial, or no upfront payment for instance you reserve.
+- discount on hourly charge for that instance
+- 1-year or 3 year term.
+- **Scheduled Reserved Instances:**
+- Purchase a capacity reservation that is always available on a recurring schedule you specify.
+- 1-year term.
+- **Spot Instances:**
+- instance run as long as they are available znd your bid is above the spot instance price.
+- they can be interrupted by aws with in 2 minutes notification.
+- interruption options include termination, stopped or hibrnated.
+- **Dedicated Hosts:**
+- A physical server with ec2 instance capacity fully dedicated to your use.
+- **Dedicated Instances:**
+- instances that run in a vpc on hardware that is dedicated to a single customer.
+
+
+- **Basic montoring:**
+- default no additional costs.
+- metric data sent to cloudwatch every 5 minutes.
+
+- **Detailed monitoring:**
+- Fixed monthly rate for seven pre-selected metrics
+- metric data delivered every 1 minute.
+
+
+
 
 ---
 
