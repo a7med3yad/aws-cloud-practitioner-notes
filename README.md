@@ -349,6 +349,14 @@ A static, public IPv4 address that can be allocated to your account and remapped
 - instances that run in a vpc on hardware that is dedicated to a single customer.
 
 
+## Cost optimization:
+- Right sizing
+- Increase Elasticity
+- Optimal pricing model
+
+## Container Services:
+- Container are method of operating system virtualization.
+
 - **Basic montoring:**
 - default no additional costs.
 - metric data sent to cloudwatch every 5 minutes.
@@ -358,14 +366,84 @@ A static, public IPv4 address that can be allocated to your account and remapped
 - metric data delivered every 1 minute.
 
 
+**AWS Fargate**  
+A serverless compute engine for containers that reduces administrative overhead. You don't need to manage the underlying servers. It can run containers for either ECS or EKS.
 
+*Key Features:*
+- Serverless container execution - no EC2 instances to manage
+- Works with both Amazon ECS and Amazon EKS
+- Pay only for the vCPU and memory resources your containers use
+- Each Fargate task has its own isolation boundary and does not share underlying kernel, CPU, memory, or network resources with other tasks
+- Automatically scales infrastructure based on container requirements
+- Integrated with AWS services like CloudWatch, IAM, VPC, and Load Balancers
+- Ideal for applications where you want to focus on building applications rather than managing infrastructure
+
+---
+
+## AWS Elastic Beanstalk
+
+**AWS Elastic Beanstalk**  
+Platform as a Service (PaaS) for fast and easy application deployment. You upload code and it automatically handles capacity provisioning, load balancing, and scaling.
+
+*Key Features:*
+- Supports multiple platforms: Java, .NET, PHP, Node.js, Python, Ruby, Go, Docker
+- Automatically handles deployment details: capacity provisioning, load balancing, auto-scaling, and application health monitoring
+- You retain full control over AWS resources powering your application
+- No additional charge for Elastic Beanstalk - pay only for the underlying AWS resources
+- Fastest and simplest way to deploy applications on AWS
+- Provides managed platform updates for operating system, web server, and programming language
+- Integrated with CloudWatch and X-Ray for monitoring and debugging
+- Supports deployment options: all-at-once, rolling, rolling with additional batch, immutable, and blue/green
+- Ideal for developers who want to focus on code without managing infrastructure
+
+---
+
+## AWS Lambda
+
+**AWS Lambda**  
+Serverless computing, function-based, low cost. Write and deploy code that runs on schedule or is triggered by events. Use when possible when architecting for the cloud.
+
+*Key Features:*
+- Runs code without provisioning or managing servers (truly serverless)
+- Automatically scales from a few requests per day to thousands per second
+- Pay only for compute time consumed - charged per millisecond of execution
+- Supports multiple languages: Python, Node.js, Java, Go, Ruby, C#, PowerShell, and custom runtimes
+- Maximum execution time: 15 minutes per invocation
+- Memory allocation: 128 MB to 10,240 MB (10 GB)
+- Can be triggered by various AWS services: S3, DynamoDB, API Gateway, CloudWatch Events, SNS, SQS, and more
+- No charge when code is not running
+- Built-in fault tolerance and automatic scaling
+- Supports environment variables and layers for code reuse
+- Integrated with AWS X-Ray for debugging and performance analysis
+- Ideal for event-driven applications, data processing, real-time file processing, and microservices
+
+---
+
+## Amazon Lightsail
+
+**Amazon Lightsail**  
+Easy-to-use virtual private server (VPS) for simple applications and websites.
+
+*Key Features:*
+- Simplified cloud platform designed for simple workloads and users new to AWS
+- Predictable, low monthly pricing with bundled compute, storage, and data transfer
+- Pre-configured application stacks: WordPress, Magento, Drupal, Joomla, and more
+- Simple management console - easier than EC2 for basic use cases
+- Includes everything needed to launch a project: virtual machine, SSD storage, data transfer, DNS management, static IP
+- One-click SSH access to instances
+- Automatic snapshots for backup and recovery
+- Load balancer and managed databases available
+- Can connect to other AWS services through VPC peering
+- Pricing tiers starting as low as $3.50/month
+- Ideal for simple web applications, websites, business software, development and test environments
+
+---
 
 ---
 
 ## Module 7: Networking Math & Important Notes
 
 ### IP Address Calculations
-
 **Number of IPs in a subnet:**
 
 ```
