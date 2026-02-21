@@ -1,463 +1,914 @@
-# AWS Cloud Practitioner Study Notes
-
-> Curated notes for the AWS Cloud Practitioner (CLF-C02) certification, covering core services, management tools, architectural frameworks, networking, and security.
+# ☁️ AWS Cloud Practitioner Study Notes
+> Curated notes for the **AWS Cloud Practitioner (CLF-C02)** certification, covering core services, management tools, architectural frameworks, networking, security, storage, pricing, and more.
 
 ---
 
-## Table of Contents
+## 📚 Table of Contents
 
-- [Module 1: Core AWS Services & Frameworks](#module-1-core-aws-services--frameworks)
-- [Module 2: AWS Organizations & Account Management](#module-2-aws-organizations--account-management)
-- [Module 3: AWS Support](#module-3-aws-support)
-- [Module 4: Security & Identity](#module-4-security--identity)
-- [Module 5: Networking & Content Delivery](#module-5-networking--content-delivery)
-- [Module 6: Compute](#module-6-compute)
-- [Module 7: Networking Math & Important Notes](#module-7-networking-math--important-notes)
-- [Module 8: Additional Security Services](#module-8-additional-security-services)
+| Module | Topic |
+|--------|-------|
+| [Module 1](#module-1-core-aws-services--frameworks) | Core AWS Services & Frameworks |
+| [Module 2](#module-2-aws-organizations--account-management) | AWS Organizations & Account Management |
+| [Module 3](#module-3-aws-support) | AWS Support |
+| [Module 4](#module-4-security--identity) | Security & Identity |
+| [Module 5](#module-5-networking--content-delivery) | Networking & Content Delivery |
+| [Module 6](#module-6-compute) | Compute |
+| [Module 7](#module-7-networking-math--important-notes) | Networking Math & Important Notes |
+| [Module 8](#module-8-additional-security-services) | Additional Security Services |
+| [Module 9](#module-9-storage-services) | Storage Services |
+| [Module 10](#module-10-aws-pricing-billing--cloud-economics) | AWS Pricing, Billing & Cloud Economics |
 
 ---
 
 ## Module 1: Core AWS Services & Frameworks
 
-### Management and Governance Services
+### 🛠️ Management and Governance Services
 
 AWS provides a suite of services to help you manage, monitor, and govern your resources effectively.
 
-**AWS Trusted Advisor**  
-A digital advisor that inspects your AWS environment and provides real-time recommendations in five categories: cost optimization, performance, security, fault tolerance, and service limits.
+| Service | Description |
+|---------|-------------|
+| **AWS Trusted Advisor** | Inspects your AWS environment and provides real-time recommendations across 5 categories: cost optimization, performance, security, fault tolerance, and service limits |
+| **AWS CloudWatch** | Monitors AWS resources and applications — collects metrics, monitors logs, and sets alarms |
+| **AWS CloudTrail** | Records API activity and user actions for governance, compliance, and auditing |
+| **AWS Well-Architected Tool** | Reviews workloads against the latest AWS architectural best practices |
+| **AWS Auto Scaling** | Automatically adjusts AWS resources to maintain performance and minimize costs |
+| **AWS CLI** | Unified tool to manage AWS services from the command line |
+| **AWS Config** | Assesses, audits, and evaluates resource configurations to track changes and ensure compliance |
+| **AWS Management Console** | Web-based graphical interface for accessing and managing AWS |
+| **AWS Organizations** | Centrally govern multiple AWS accounts, consolidate billing, and apply policies |
 
-**AWS CloudWatch**  
-A monitoring service for AWS resources and applications. It collects and tracks metrics, collects and monitors log files, and sets alarms.
+---
 
-**AWS CloudTrail**  
-Records API activity and user actions in your account. It enables governance, compliance, and operational and risk auditing.
+### 🏗️ AWS Cloud Adoption Framework (AWS CAF)
 
-**AWS Well-Architected Tool**  
-Helps you review the state of your workloads and compares them to the latest AWS architectural best practices.
-
-**AWS Auto Scaling**  
-Automatically adjusts the number of AWS resources (like EC2 instances) to maintain performance and minimize costs during demand changes.
-
-**AWS Command Line Interface (CLI)**  
-A unified tool to manage your AWS services from the command line, allowing for automation and scripting.
-
-**AWS Config**  
-A service that assesses, audits, and evaluates the configurations of your AWS resources, allowing you to track changes and ensure compliance.
-
-**AWS Management Console**  
-A web-based, graphical interface for accessing and managing your AWS account and services.
-
-**AWS Organizations**  
-Allows you to centrally govern multiple AWS accounts, consolidate billing, and apply policies for security and automation.
-
-### AWS Cloud Adoption Framework (AWS CAF)
-
-The AWS CAF provides guidance to help organizations build an effective and comprehensive approach to cloud adoption. It organizes guidance into six core perspectives, each covering distinct responsibilities.
+The AWS CAF provides guidance to help organizations build a comprehensive approach to cloud adoption, organized into **six core perspectives**.
 
 #### The Six Core Perspectives
 
-1. **Business Perspective**  
-   Ensures that IT aligns with business needs and that investments drive digital transformation and business goals.  
-   *Examples: IT Finance, Business Risk Management*
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    AWS CAF Perspectives                      │
+├───────────────────────┬─────────────────────────────────────┤
+│  Business             │  Align IT with business goals       │
+│  People               │  Culture, structure, and roles      │
+│  Governance           │  Risk, compliance, IT strategy      │
+│  Platform             │  Design & build cloud infra         │
+│  Security             │  Security & compliance objectives   │
+│  Operations           │  Manage & monitor cloud workloads   │
+└───────────────────────┴─────────────────────────────────────┘
+```
 
-2. **People Perspective**  
-   Helps HR and people management teams prepare for cloud adoption by evolving organizational culture, structure, and roles.  
-   *Examples: Training Management, Organizational Change Management*
+1. **Business Perspective** — Ensures IT aligns with business needs and drives digital transformation.
+   - *Examples: IT Finance, Business Risk Management*
 
-3. **Governance Perspective**  
-   Focuses on skills and processes to align IT strategy with business goals, manage risk, and ensure compliance.  
-   *Examples: Portfolio Management, License Management*
+2. **People Perspective** — Prepares HR teams by evolving organizational culture, structure, and roles.
+   - *Examples: Training Management, Organizational Change Management*
 
-4. **Platform Perspective**  
-   Helps you design, build, and run your cloud infrastructure and applications.  
-   *Examples: Compute Provisioning, Application Development*
+3. **Governance Perspective** — Aligns IT strategy with business goals, manages risk, and ensures compliance.
+   - *Examples: Portfolio Management, License Management*
 
-5. **Security Perspective**  
-   Ensures that your organization meets its security and compliance objectives.  
-   *Examples: Identity and Access Management, Data Protection, Incident Response*
+4. **Platform Perspective** — Helps design, build, and run cloud infrastructure and applications.
+   - *Examples: Compute Provisioning, Application Development*
 
-6. **Operations Perspective**  
-   Helps you manage, monitor, and operate your cloud workloads to meet business requirements.  
-   *Examples: Service Monitoring, Business Continuity/Disaster Recovery*
+5. **Security Perspective** — Ensures security and compliance objectives are met.
+   - *Examples: Identity and Access Management, Data Protection, Incident Response*
+
+6. **Operations Perspective** — Manages, monitors, and operates cloud workloads to meet business requirements.
+   - *Examples: Service Monitoring, Business Continuity/Disaster Recovery*
 
 ---
 
 ## Module 2: AWS Organizations & Account Management
 
-### AWS Organizations
+### 🏢 AWS Organizations
 
-AWS Organizations is a central service for managing multiple AWS accounts. Its main benefits include:
+AWS Organizations is a central service for managing multiple AWS accounts.
 
+**Key Benefits:**
 - Centrally managed access policies using **Service Control Policies (SCPs)**
 - Controlled access to AWS services across all accounts
 - Automated AWS account creation and management via APIs
-- Consolidated billing to get a single bill for all accounts and take advantage of volume discounts
+- **Consolidated billing** — single bill for all accounts with volume discount benefits
 
-### AWS Billing and Cost Management Tools
+---
 
-**AWS Billing Dashboard**  
-Provides a high-level view of your month-to-date spending, top services by cost, and cost trends.
+### 💰 AWS Billing and Cost Management Tools
 
-**AWS Budgets**  
-Allows you to set custom budgets (monthly, quarterly) for costs or usage and receive alerts when you exceed (or are forecasted to exceed) your thresholds.
+| Tool | Purpose |
+|------|---------|
+| **AWS Billing Dashboard** | High-level view of month-to-date spending, top services by cost, and trends |
+| **AWS Budgets** | Set custom budgets and receive alerts when you exceed (or forecast to exceed) thresholds |
+| **AWS Cost and Usage Report (CUR)** | Most comprehensive data source — detailed information down to the resource level |
+| **AWS Cost Explorer** | Visualization tool to explore data, identify trends, and pinpoint cost drivers |
 
-**AWS Cost and Usage Report (CUR)**  
-The most comprehensive data source for your AWS costs and usage. It provides detailed information down to the resource level, which can be used for in-depth analysis.
-
-**AWS Cost Explorer**  
-A visualization tool that includes default reports (e.g., top services by cost) and allows you to explore your data, identify trends, and pinpoint cost drivers.
+> 💡 **Tip:** Use Cost Explorer for trend analysis and Budgets for proactive cost alerts.
 
 ---
 
 ## Module 3: AWS Support
 
-### Support Resources
+### 🤝 Support Resources
 
-**Technical Account Manager (TAM)**  
-A primary point of contact for Enterprise Support, providing proactive guidance, architectural reviews, and ongoing communication to help you plan and optimize your solutions.
+**Technical Account Manager (TAM)**
+Primary point of contact for Enterprise Support — provides proactive guidance, architectural reviews, and ongoing communication.
 
-**AWS Trusted Advisor**  
+**AWS Trusted Advisor**
 Acts as a best-practice expert, providing checks and recommendations customized for your environment.
 
-**AWS Support Concierge**  
-A billing and account expert available for the Enterprise Support plan to provide quick analysis and assistance with non-technical issues.
+**AWS Support Concierge**
+A billing and account expert (Enterprise plan only) for quick analysis and assistance with non-technical issues.
 
-### Support Plans
+---
 
-| Plan | Description | Key Features |
-|------|-------------|--------------|
-| **Basic** | Free for all accounts | Access to whitepapers, documentation, and Support Forum |
-| **Developer** | Recommended for testing or early development | Best-practice guidance and support for general guidance and problem-solving |
-| **Business** | Ideal for running production workloads | Direct phone/chat support, full set of Trusted Advisor checks, support for third-party software |
-| **Enterprise** | For business and mission-critical workloads | All Business features + designated TAM, concierge support team, Support API |
+### 📋 Support Plans
+
+| Plan | Best For | Key Features |
+|------|----------|--------------|
+| **Basic** | All accounts (free) | Whitepapers, documentation, Support Forum |
+| **Developer** | Testing / early development | Best-practice guidance, general problem-solving |
+| **Business** | Production workloads | Phone/chat support, full Trusted Advisor checks, third-party software support |
+| **Enterprise** | Mission-critical workloads | All Business features + TAM, concierge support, Support API |
+
+> 💡 Only **Business** and **Enterprise** plans include a full set of Trusted Advisor checks.
 
 ---
 
 ## Module 4: Security & Identity
 
-### AWS Shared Responsibility Model
+### 🔐 AWS Shared Responsibility Model
 
-Security and compliance are a shared responsibility between AWS and the customer. This model helps reduce the customer's operational burden.
+Security and compliance is a **shared responsibility** between AWS and the customer.
 
-**Customer (Security IN the Cloud)**  
-The customer is responsible for security within the cloud. This includes:
-- Managing the guest operating system
-- Application software
-- Firewall configurations
-- Network ACLs
-- Customer data
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    YOUR RESPONSIBILITY                       │
+│           Security IN the Cloud (what you build)            │
+│  • Guest OS  • App software  • Firewall configs             │
+│  • Network ACLs  • Customer data  • Encryption              │
+├─────────────────────────────────────────────────────────────┤
+│                    AWS RESPONSIBILITY                        │
+│           Security OF the Cloud (the foundation)            │
+│  • Hardware  • Software  • Networking  • Facilities         │
+│  • Physical network  • Regions  • Availability Zones        │
+└─────────────────────────────────────────────────────────────┘
+```
 
-**AWS (Security OF the Cloud)**  
-AWS is responsible for the security of the cloud infrastructure that runs all the services. This includes:
-- Hardware, software, networking, and facilities
-- AWS services infrastructure
-- Physical network (Regions and Availability Zones)
+---
 
-### AWS Identity and Access Management (IAM)
+### 👤 AWS Identity and Access Management (IAM)
 
-IAM is the service for managing access to AWS resources securely.
+IAM manages **who** can access **what** in your AWS account.
 
-**IAM User**  
-A person or application that requires long-term access to your AWS account. It has permanent credentials.
+| IAM Entity | Description |
+|------------|-------------|
+| **IAM User** | Person or application needing long-term access with permanent credentials |
+| **IAM Group** | Collection of IAM users — assign policies to a group, all users inherit permissions |
+| **IAM Policy** | JSON document defining which actions are allowed or denied on which resources |
+| **IAM Role** | Temporary identity that can be assumed by any entity (service, application, user) that needs it |
 
-**IAM Group**  
-A collection of IAM users. Instead of defining permissions for each individual user, you can assign policies to a group, and all users in the group inherit those permissions.
+**Multi-Factor Authentication (MFA)**
+Adds an extra layer of protection — requires username/password + a unique time-based code from a hardware or virtual device.
 
-**IAM Policy**  
-A document written in JSON that defines permissions. It specifies which actions (e.g., `ec2:start`, `s3:listbucket`) are allowed or denied on which AWS resources.
+> 💡 **Best practice:** Never use the root account for daily tasks. Create individual IAM users and use MFA on the root account.
 
-**IAM Role**  
-An identity within an account with specific permissions. It is not uniquely associated with one person; instead, it can be assumed by any entity that needs it temporarily, like an AWS service or an application running on an EC2 instance.
+#### IAM Policy Structure (JSON)
 
-**Multi-Factor Authentication (MFA)**  
-An optional but highly recommended security feature that adds an extra layer of protection. In addition to a username and password, users must enter a unique, time-based code from a hardware or virtual device.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:ListBucket"],
+      "Resource": "arn:aws:s3:::my-bucket/*"
+    }
+  ]
+}
+```
 
 ---
 
 ## Module 5: Networking & Content Delivery
 
-### Amazon Virtual Private Cloud (VPC)
+### 🌐 Amazon Virtual Private Cloud (VPC)
 
-A VPC is a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. It is specific to a single AWS region but can span multiple Availability Zones (AZs).
+A VPC is a **logically isolated section** of the AWS cloud where you launch resources in a virtual network you define.
 
-**Subnet**  
-A range of IP addresses within a VPC. Subnets reside in a single AZ and are classified as either public (with direct route to the internet) or private (no direct internet access).
+- Specific to a **single AWS Region**
+- Can span **multiple Availability Zones**
 
-**Elastic IP Address**  
-A static, public IPv4 address that can be allocated to your account and remapped to any instance or network interface in the same region, masking instance failures.
+**Subnet** — A range of IP addresses within a VPC, residing in a single AZ.
 
-### VPC Connectivity & Networking
+| Subnet Type | Description |
+|-------------|-------------|
+| **Public** | Has a direct route to the internet via an Internet Gateway |
+| **Private** | No direct internet access — uses NAT Gateway for outbound traffic |
 
-**Internet Gateway (IGW)**  
-A highly available and redundant component that allows communication between your VPC and the public internet. It is attached to the VPC and acts as a target for internet-bound traffic from public subnets.
+---
 
-**NAT Gateway (Network Address Translation)**  
-A managed service that enables instances in a private subnet to connect to the internet or other AWS services for updates or patches, but prevents the internet from initiating a connection with them.
+### 🔗 VPC Connectivity & Networking
 
-**VPC Peering**  
-A private, direct network connection between two VPCs that allows routing traffic using private IPv4 or IPv6 addresses. Instances in peered VPCs behave as if they were on the same network.
+| Service | Purpose |
+|---------|---------|
+| **Internet Gateway (IGW)** | Allows communication between VPC and the public internet |
+| **NAT Gateway** | Enables private subnet instances to reach the internet (outbound only) |
+| **VPC Peering** | Private direct connection between two VPCs using private IP addresses |
+| **Site-to-Site VPN** | Secure encrypted tunnel between on-premises network and AWS VPC |
+| **AWS Direct Connect (DX)** | Dedicated, private, high-bandwidth connection from on-premises to AWS |
+| **VPC Endpoints** | Private connection to AWS services (S3, DynamoDB) without internet |
+| **AWS Transit Gateway** | Central hub connecting VPCs, VPNs, and Direct Connect connections |
 
-*Restrictions:*
-- IP ranges cannot overlap
-- Transitive peering (e.g., VPC A → VPC B → VPC C) is not supported; a full mesh of connections is required
+**VPC Peering Restrictions:**
+- IP ranges **cannot overlap**
+- **Transitive peering is NOT supported** (A→B→C requires A→C direct connection too)
 
-**AWS Site-to-Site VPN**  
-A secure connection that links your on-premises network or office to your AWS VPC over the public internet, using encrypted tunnels.
+---
 
-**AWS Direct Connect (DX)**  
-A service that establishes a dedicated, private, and high-bandwidth network connection between your on-premises data center and AWS. This can reduce costs, increase reliability, and provide a more consistent experience than internet-based connections.
+### 🔒 VPC Security
 
-**VPC Endpoints**  
-Allow you to privately connect your VPC to supported AWS services (like S3 or DynamoDB) without requiring a public IP address or traffic to traverse the internet. They are powered by AWS PrivateLink.
+#### Security Groups vs Network ACLs
 
-**AWS Transit Gateway**  
-Acts as a central network hub. You can connect your VPCs, VPN connections, and AWS Direct Connect connections to a single gateway, which simplifies network management and reduces the number of complex peering relationships.
+| Feature | Security Groups | Network ACLs |
+|---------|----------------|--------------|
+| **Level** | Instance level | Subnet level |
+| **State** | **Stateful** (return traffic auto-allowed) | **Stateless** (must define both directions) |
+| **Rules** | Allow rules only | Allow and Deny rules |
+| **Evaluation** | All rules evaluated | Rules evaluated in number order (lowest first) |
+| **Default** | Deny all inbound, allow all outbound | Allow all inbound and outbound |
 
-### VPC Security
+> 💡 **Remember:** Security Groups = Stateful (like a bouncer who remembers you). NACLs = Stateless (like a checkpoint that checks every pass).
 
-#### Security Groups
+---
 
-Act as a virtual, **stateful** firewall for an instance (e.g., an EC2 instance). They control inbound and outbound traffic at the instance level.
+### 🌍 Global Content Delivery
 
-- **Stateful**: If you allow inbound traffic on a port, the outbound return traffic is automatically allowed, regardless of outbound rules
-- The default security group denies all inbound traffic and allows all outbound traffic
+#### Amazon Route 53
+A highly available and scalable **DNS web service** that translates domain names into IP addresses.
 
-#### Network Access Control Lists (Network ACLs)
+**Routing Policies:**
 
-Act as a **stateless** firewall for a subnet. They control traffic entering and exiting the subnet.
+| Policy | Use Case |
+|--------|----------|
+| **Simple** | Single server environments — route to one resource |
+| **Weighted Round Robin** | Distribute traffic by percentage weights |
+| **Latency** | Route to the lowest-latency region for the user |
+| **Geolocation** | Route based on user's geographic location |
+| **Geoproximity** | Route based on resource location with optional bias |
+| **Failover** | Active-passive failover to a backup site |
+| **Multivalue Answer** | Return up to 8 healthy records selected at random |
 
-- **Stateless**: You must explicitly define rules for both inbound and outbound traffic. Return traffic is not automatically allowed
-- Rules are evaluated by number (lowest to highest) to determine whether traffic is allowed or denied
+---
 
-### Global Content Delivery
+#### Amazon CloudFront
+A fast, global **Content Delivery Network (CDN)** that delivers data, videos, apps, and APIs with low latency.
 
-**Amazon Route 53**  
-A highly available and scalable Domain Name System (DNS) web service. It translates human-readable domain names (like example.com) into IP addresses used by computers to connect.
+```
+User Request → Edge Location (cache hit? serve it!) 
+                     ↓ (cache miss)
+             Regional Edge Cache
+                     ↓ (cache miss)
+             Origin Server (S3, EC2, etc.)
+```
 
-**Amazon CloudFront**  
-A fast, global content delivery network (CDN) service. It securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds by using a network of edge locations.
-
-#### Route 53 Supported Routing Policies
-
-- **Simple routing**: Use for single-server environments to route traffic to a single resource
-- **Weighted round robin routing**: Assign weights to resource record sets to specify the frequency of traffic distribution
-- **Latency routing**: Help improve your global applications by routing traffic based on the lowest network latency for the user
-- **Geolocation routing**: Route traffic based on the geographic location of your users
-- **Geoproximity routing**: Route traffic based on the geographic location of your resources, with optional bias to shift more traffic to a specific location
-- **Failover routing**: Fail over to a backup site if your primary site becomes unreachable (active-passive failover)
-- **Multivalue answer routing**: Respond to DNS queries with up to eight healthy records selected at random to improve availability
-
-#### CloudFront: Fast, Global, and Secure CDN Service
-
-- Global network of edge locations and regional edge caches
-- Self-service model
-- Pay-as-you-go pricing
-- **Edge locations**: Network of data centers that CloudFront uses to serve popular content quickly to customers
-- **Regional edge caches**: CloudFront locations that cache content that is not popular enough to stay in an edge location. They are located between the origin server and the global edge locations
+- Global network of **edge locations** for popular content
+- **Regional edge caches** for less popular content (between edge and origin)
+- Self-service model with pay-as-you-go pricing
 
 ---
 
 ## Module 6: Compute
 
-### Container Services
+### 🐳 Container Services
 
-**Amazon ECR (Elastic Container Registry)**  
-A fully-managed Docker container registry to store, manage, and deploy container images.
+| Service | Description |
+|---------|-------------|
+| **Amazon ECR** | Fully managed Docker container registry — store, manage, and deploy container images |
+| **Amazon ECS** | AWS's own container orchestration tool for running Docker containers |
+| **Amazon EKS** | Managed Kubernetes service to run Kubernetes containers on AWS |
+| **AWS Fargate** | Serverless compute engine for containers — no EC2 instances to manage |
 
-**Amazon ECS (Elastic Container Service)**  
-AWS's own container orchestration tool for running and managing Docker containers.
-
-**Amazon EKS (Elastic Kubernetes Service)**  
-Managed Kubernetes service for AWS to run Kubernetes containers.
-
-**AWS Fargate**  
-A serverless compute engine for containers that reduces administrative overhead. You don't need to manage the underlying servers. It can run containers for either ECS or EKS.
-
-### Compute Options
-
-**VMware Cloud on AWS**  
-Allows you to migrate and run your VMware workloads on AWS with consistent operations.
-
-**Amazon EC2 (Elastic Compute Cloud)**  
-Infrastructure as a Service (IaaS), instance-based, virtual machines that you can provision and manage as you choose.
-
-**EC2 Auto Scaling**  
-Automatically adjusts the number of EC2 instances to maintain performance and minimize costs.
-
-**AWS Elastic Beanstalk**  
-Platform as a Service (PaaS) for fast and easy application deployment. You upload code and it automatically handles capacity provisioning, load balancing, and scaling.
-
-**AWS Lambda**  
-Serverless computing, function-based, low cost. Write and deploy code that runs on schedule or is triggered by events. Use when possible when architecting for the cloud.
-
-**Amazon Lightsail**  
-Easy-to-use virtual private server (VPS) for simple applications and websites.
-
-**AWS Batch**  
-Run batch computing workloads at any scale.
-
-**AWS Outposts**  
-Run AWS infrastructure and services on-premises for a truly consistent hybrid experience.
-
-**AWS Serverless Application Repository**  
-A managed repository for serverless applications.
-
-### EC2 Nine Key Decisions When Launching
-
-1. Amazon Machine Image (AMI)
-2. Instance type
-3. Network settings
-4. IAM role
-5. User data
-6. Storage options
-7. Tags
-8. Security group
-9. Key pair
-
-
-### Elastic IP Address
-
-A static, public IPv4 address that can be allocated to your account and remapped.
-
-**Key difference from public IP**: Public IPs change when an instance stops and starts; Elastic IPs are static and remain with your account until you release them.
-
-**Use Amazon Cloud Watch for montitoring your EC2 instances:**
-- provides near-real-time metrics
-- provides charts in the amazon EC2 console montoring tab that you can view.
-- maintains 15 months of historical data.
-
-## Amazing EC2 pricing models:
-
-- **On-Demand Instances:**
-- pay by the hour
-- no long term commitments
-- eligible for the AWS FREE TIER
-- **Reserved Instances:**
-- full, partial, or no upfront payment for instance you reserve.
-- discount on hourly charge for that instance
-- 1-year or 3 year term.
-- **Scheduled Reserved Instances:**
-- Purchase a capacity reservation that is always available on a recurring schedule you specify.
-- 1-year term.
-- **Spot Instances:**
-- instance run as long as they are available znd your bid is above the spot instance price.
-- they can be interrupted by aws with in 2 minutes notification.
-- interruption options include termination, stopped or hibrnated.
-- **Dedicated Hosts:**
-- A physical server with ec2 instance capacity fully dedicated to your use.
-- **Dedicated Instances:**
-- instances that run in a vpc on hardware that is dedicated to a single customer.
-
-
-## Cost optimization:
-- Right sizing
-- Increase Elasticity
-- Optimal pricing model
-
-## Container Services:
-- Container are method of operating system virtualization.
-
-- **Basic montoring:**
-- default no additional costs.
-- metric data sent to cloudwatch every 5 minutes.
-
-- **Detailed monitoring:**
-- Fixed monthly rate for seven pre-selected metrics
-- metric data delivered every 1 minute.
-
-
-**AWS Fargate**  
-A serverless compute engine for containers that reduces administrative overhead. You don't need to manage the underlying servers. It can run containers for either ECS or EKS.
-
-*Key Features:*
-- Serverless container execution - no EC2 instances to manage
-- Works with both Amazon ECS and Amazon EKS
-- Pay only for the vCPU and memory resources your containers use
-- Each Fargate task has its own isolation boundary and does not share underlying kernel, CPU, memory, or network resources with other tasks
-- Automatically scales infrastructure based on container requirements
-- Integrated with AWS services like CloudWatch, IAM, VPC, and Load Balancers
-- Ideal for applications where you want to focus on building applications rather than managing infrastructure
+**AWS Fargate Key Features:**
+- Works with both ECS and EKS
+- Pay only for vCPU and memory your containers use
+- Each task has its own isolation boundary
+- Automatically scales based on container requirements
+- Ideal when you want to focus on applications, not infrastructure
 
 ---
 
-## AWS Elastic Beanstalk
+### 💻 Compute Options Comparison
 
-**AWS Elastic Beanstalk**  
-Platform as a Service (PaaS) for fast and easy application deployment. You upload code and it automatically handles capacity provisioning, load balancing, and scaling.
-
-*Key Features:*
-- Supports multiple platforms: Java, .NET, PHP, Node.js, Python, Ruby, Go, Docker
-- Automatically handles deployment details: capacity provisioning, load balancing, auto-scaling, and application health monitoring
-- You retain full control over AWS resources powering your application
-- No additional charge for Elastic Beanstalk - pay only for the underlying AWS resources
-- Fastest and simplest way to deploy applications on AWS
-- Provides managed platform updates for operating system, web server, and programming language
-- Integrated with CloudWatch and X-Ray for monitoring and debugging
-- Supports deployment options: all-at-once, rolling, rolling with additional batch, immutable, and blue/green
-- Ideal for developers who want to focus on code without managing infrastructure
+| Service | Type | Best For |
+|---------|------|---------|
+| **Amazon EC2** | IaaS — Virtual machines | Full control over OS and configuration |
+| **AWS Elastic Beanstalk** | PaaS — Managed platform | Fast app deployment without managing infra |
+| **AWS Lambda** | Serverless — Function-based | Event-driven, short-duration tasks |
+| **Amazon Lightsail** | Simplified VPS | Simple apps, websites, beginners |
+| **AWS Batch** | Managed batch computing | Large-scale batch workloads |
+| **AWS Outposts** | On-premises AWS | Hybrid cloud, low-latency on-prem needs |
+| **VMware Cloud on AWS** | VMware on AWS | Migrate existing VMware workloads |
 
 ---
 
-## AWS Lambda
+### 🖥️ Amazon EC2 Deep Dive
 
-**AWS Lambda**  
-Serverless computing, function-based, low cost. Write and deploy code that runs on schedule or is triggered by events. Use when possible when architecting for the cloud.
+#### 9 Key Decisions When Launching an EC2 Instance
 
-*Key Features:*
-- Runs code without provisioning or managing servers (truly serverless)
-- Automatically scales from a few requests per day to thousands per second
-- Pay only for compute time consumed - charged per millisecond of execution
-- Supports multiple languages: Python, Node.js, Java, Go, Ruby, C#, PowerShell, and custom runtimes
-- Maximum execution time: 15 minutes per invocation
-- Memory allocation: 128 MB to 10,240 MB (10 GB)
-- Can be triggered by various AWS services: S3, DynamoDB, API Gateway, CloudWatch Events, SNS, SQS, and more
-- No charge when code is not running
-- Built-in fault tolerance and automatic scaling
-- Supports environment variables and layers for code reuse
-- Integrated with AWS X-Ray for debugging and performance analysis
-- Ideal for event-driven applications, data processing, real-time file processing, and microservices
+```
+1. Amazon Machine Image (AMI)    — OS and pre-installed software
+2. Instance Type                 — CPU, memory, storage, networking
+3. Network Settings              — VPC, subnet, public IP
+4. IAM Role                      — Permissions for the instance
+5. User Data                     — Bootstrap scripts on launch
+6. Storage Options               — EBS volumes, instance store
+7. Tags                          — Key-value labels for organization
+8. Security Group                — Firewall rules
+9. Key Pair                      — SSH access credentials
+```
+
+#### EC2 Pricing Models
+
+| Model | Description | Best For |
+|-------|-------------|---------|
+| **On-Demand** | Pay by the hour, no commitments | Unpredictable workloads, testing |
+| **Reserved Instances** | 1 or 3 year term, up to 75% discount | Steady-state, predictable workloads |
+| **Scheduled Reserved** | Reserve capacity on a recurring schedule | Predictable, time-specific workloads |
+| **Spot Instances** | Bid on unused capacity — can be interrupted with 2-min notice | Fault-tolerant, flexible workloads |
+| **Dedicated Hosts** | Physical server fully dedicated to you | Compliance, licensing requirements |
+| **Dedicated Instances** | Hardware dedicated to single customer | Compliance needs, VPC isolation |
+
+> 💡 **Spot Instances** can be interrupted by AWS with only a **2-minute warning**. Interruption options: terminate, stop, or hibernate.
+
+#### EC2 Monitoring with CloudWatch
+
+| Monitoring Type | Cost | Frequency |
+|----------------|------|-----------|
+| **Basic** | Free | Metrics every 5 minutes |
+| **Detailed** | Fixed monthly rate (7 pre-selected metrics) | Metrics every 1 minute |
+
+---
+
+### ⚡ AWS Lambda Deep Dive
+
+**Truly serverless** — runs code without provisioning or managing servers.
+
+| Feature | Detail |
+|---------|--------|
+| **Max execution time** | 15 minutes per invocation |
+| **Memory** | 128 MB to 10,240 MB (10 GB) |
+| **Pricing** | Charged per millisecond of execution |
+| **Languages** | Python, Node.js, Java, Go, Ruby, C#, PowerShell, custom runtimes |
+
+**Common Triggers:**
+S3 · DynamoDB · API Gateway · CloudWatch Events · SNS · SQS · and more
+
+> 💡 Lambda is ideal for **event-driven applications**, real-time file processing, data transformation, and microservices.
 
 ---
 
-## Amazon Lightsail
+### 🌱 AWS Elastic Beanstalk Deep Dive
 
-**Amazon Lightsail**  
-Easy-to-use virtual private server (VPS) for simple applications and websites.
+PaaS — upload your code and Beanstalk handles everything else.
 
-*Key Features:*
-- Simplified cloud platform designed for simple workloads and users new to AWS
-- Predictable, low monthly pricing with bundled compute, storage, and data transfer
-- Pre-configured application stacks: WordPress, Magento, Drupal, Joomla, and more
-- Simple management console - easier than EC2 for basic use cases
-- Includes everything needed to launch a project: virtual machine, SSD storage, data transfer, DNS management, static IP
-- One-click SSH access to instances
-- Automatic snapshots for backup and recovery
-- Load balancer and managed databases available
-- Can connect to other AWS services through VPC peering
-- Pricing tiers starting as low as $3.50/month
-- Ideal for simple web applications, websites, business software, development and test environments
+**Supported Platforms:** Java · .NET · PHP · Node.js · Python · Ruby · Go · Docker
+
+**Deployment Options:**
+
+| Option | Description |
+|--------|-------------|
+| **All-at-once** | Deploy to all instances simultaneously (causes downtime) |
+| **Rolling** | Deploy in batches, maintaining partial availability |
+| **Rolling with additional batch** | Launch extra instances during deployment |
+| **Immutable** | Launch new instances, then swap (safest) |
+| **Blue/Green** | Deploy to separate environment, then swap DNS |
+
+> 💡 **No additional charge** for Elastic Beanstalk — pay only for underlying AWS resources.
 
 ---
+
+### 💡 Amazon Lightsail
+
+Simplified VPS platform designed for users new to AWS or simple workloads.
+
+- Predictable low monthly pricing (from ~$3.50/month)
+- Bundled compute, storage, and data transfer
+- Pre-configured stacks: WordPress, Magento, Drupal, Joomla, and more
+- One-click SSH access, automatic snapshots
+- Can connect to other AWS services via VPC peering
 
 ---
 
 ## Module 7: Networking Math & Important Notes
 
-### IP Address Calculations
-**Number of IPs in a subnet:**
+### 🔢 IP Address Calculations
 
+**Formula: Number of usable IPs in a subnet**
 ```
-2^(32 - CIDR) - 5
+Usable IPs = 2^(32 - CIDR prefix) - 5
 ```
 
-#### Why subtract 5?
+#### Why Subtract 5? (AWS Reserved IPs per Subnet)
 
-AWS reserves 5 IP addresses per subnet automatically:
+| Reserved IP | Address | Purpose |
+|-------------|---------|---------|
+| **1st** | x.x.x.0 | Network address |
+| **2nd** | x.x.x.1 | VPC router |
+| **3rd** | x.x.x.2 | AWS DNS server |
+| **4th** | x.x.x.3 | Reserved for future AWS use |
+| **Last** | x.x.x.255 | Broadcast address (reserved but not used in VPC) |
 
-1. **Network address**: First IP (e.g., 10.0.0.0)
-2. **VPC router**: Second IP (.1) - For internal routing
-3. **AWS DNS**: Third IP (.2) - Base of the VPC DNS server
-4. **AWS Future use**: Fourth IP (.3) - Reserved by AWS
-5. **Broadcast address**: Last IP (.255) - Broadcast is not supported in VPC but address is still reserved
+#### Quick Reference Table
+
+| CIDR | Total IPs | Usable IPs |
+|------|-----------|------------|
+| /28 | 16 | 11 |
+| /27 | 32 | 27 |
+| /26 | 64 | 59 |
+| /25 | 128 | 123 |
+| /24 | 256 | 251 |
+| /23 | 512 | 507 |
+| /22 | 1,024 | 1,019 |
+| /16 | 65,536 | 65,531 |
+
+#### Example Calculation
+```
+For a /24 subnet (e.g., 10.0.1.0/24):
+  Total IPs  = 2^(32-24) = 2^8 = 256
+  Usable IPs = 256 - 5   = 251
+```
 
 ---
+
+### 📝 Important Networking Notes
+
+- **VPC CIDR block** cannot be changed after creation — plan carefully
+- **Subnets** within a VPC cannot overlap in IP ranges
+- **Default VPC** is automatically created in each region with public subnets
+- A **NAT Gateway** must be in a **public subnet** to work
+- **Internet Gateway** is 1-to-1 with a VPC (one IGW per VPC)
+- **Security Groups** are stateful; **NACLs** are stateless
+- VPC peering does **not** support transitive routing
+
+---
+
+## Module 8: Additional Security Services
+
+### 🛡️ AWS Security Services Overview
+
+| Service | Purpose |
+|---------|---------|
+| **AWS Shield** | DDoS protection |
+| **AWS WAF** | Web Application Firewall — filter malicious web traffic |
+| **AWS GuardDuty** | Intelligent threat detection using ML |
+| **AWS Inspector** | Automated vulnerability scanning |
+| **AWS Macie** | Sensitive data discovery in S3 using ML |
+| **AWS Secrets Manager** | Store, rotate, and manage secrets (API keys, passwords) |
+| **AWS KMS** | Create and manage cryptographic keys |
+| **AWS CloudHSM** | Hardware-based key storage for regulatory compliance |
+| **AWS Cognito** | User authentication and authorization for apps |
+| **AWS Detective** | Analyze and investigate security findings |
+| **AWS Security Hub** | Centralized security findings from multiple AWS services |
+
+---
+
+### 🔰 AWS Shield
+
+Protects against **DDoS (Distributed Denial of Service)** attacks.
+
+| Tier | Cost | Features |
+|------|------|---------|
+| **Shield Standard** | Free (automatic) | Protection against common layer 3 and 4 attacks |
+| **Shield Advanced** | Paid (~$3,000/month) | Layer 7 protection, 24/7 DDoS Response Team (DRT), cost protection, real-time visibility |
+
+---
+
+### 🌐 AWS WAF (Web Application Firewall)
+
+Protects web applications from common web exploits that could affect availability, compromise security, or consume excessive resources.
+
+- Filters traffic based on **rules** (IP addresses, HTTP headers, HTTP body, URI strings)
+- Protects against: **SQL injection**, **cross-site scripting (XSS)**, bad bots
+- Works with **CloudFront**, **ALB**, **API Gateway**, and **AppSync**
+- Supports **managed rule groups** from AWS and AWS Marketplace partners
+
+---
+
+### 🔑 AWS Key Management Service (KMS)
+
+A managed service to **create, manage, and control cryptographic keys** used for data encryption.
+
+- Integrated with most AWS services (S3, EBS, RDS, etc.)
+- Supports **automatic key rotation**
+- **Customer Managed Keys (CMK)** — you control the key policy
+- **AWS Managed Keys** — AWS manages on your behalf
+- All key usage is **logged in CloudTrail**
+
+---
+
+### 🔐 AWS Secrets Manager
+
+Securely **store, rotate, manage, and retrieve** secrets like database credentials, API keys, and OAuth tokens.
+
+- Automatic **secret rotation** (e.g., RDS passwords every 30 days)
+- Integrated with RDS, Redshift, DocumentDB for native rotation
+- Replaces hard-coded credentials in code
+
+> 💡 **Secrets Manager vs SSM Parameter Store:** Secrets Manager is purpose-built for secrets with rotation; Parameter Store is more general-purpose configuration storage.
+
+---
+
+### 🔍 AWS GuardDuty
+
+A continuous **intelligent threat detection** service that analyzes:
+- AWS CloudTrail logs
+- VPC Flow Logs
+- DNS logs
+
+**Detects threats like:**
+- Compromised EC2 instances communicating with malicious IPs
+- Unusual API calls or account behavior (e.g., from Tor exit nodes)
+- Unauthorized deployments of cryptocurrency mining software
+- Credential exfiltration attempts
+
+> 💡 GuardDuty requires **no agents** to install — it analyzes existing logs automatically.
+
+---
+
+### 🕵️ AWS Security Hub
+
+A **centralized security dashboard** that aggregates, organizes, and prioritizes security findings from multiple AWS services and third-party tools.
+
+- Integrates with: GuardDuty, Inspector, Macie, IAM Access Analyzer, Firewall Manager
+- Provides **automated compliance checks** against standards (CIS, PCI-DSS, AWS Foundational Security)
+- Gives a single pane of glass for security posture
+
+---
+
+### 🔒 AWS Certificate Manager (ACM)
+
+Provision, manage, and deploy **SSL/TLS certificates** for AWS services.
+
+- Free public certificates for use with AWS services
+- Automatic certificate renewal
+- Works with CloudFront, ALB, API Gateway, and more
+
+---
+
+### 🧩 AWS Cognito
+
+Provides **user authentication and authorization** for web and mobile applications.
+
+| Feature | Description |
+|---------|-------------|
+| **User Pools** | User directory that handles sign-up, sign-in, and user management |
+| **Identity Pools** | Grant users temporary AWS credentials to access AWS services directly |
+
+---
+
+## Module 9: Storage Services
+
+### 🗄️ AWS Storage Overview
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    AWS Storage Types                          │
+├──────────────────┬───────────────────────┬───────────────────┤
+│  Object Storage  │   Block Storage        │  File Storage     │
+│  (Amazon S3)     │   (Amazon EBS)         │  (Amazon EFS)     │
+│                  │   (Instance Store)     │  (Amazon FSx)     │
+└──────────────────┴───────────────────────┴───────────────────┘
+```
+
+---
+
+### 🪣 Amazon S3 (Simple Storage Service)
+
+**Object storage** — store any type of file as an object with virtually unlimited capacity.
+
+**Key Concepts:**
+- **Buckets** — containers for objects (globally unique names)
+- **Objects** — files + metadata, up to **5 TB** per object
+- **Keys** — unique identifier for each object within a bucket
+
+#### S3 Storage Classes
+
+| Storage Class | Use Case | Retrieval | Cost |
+|--------------|---------|-----------|------|
+| **S3 Standard** | Frequently accessed data | Milliseconds | Highest |
+| **S3 Intelligent-Tiering** | Unknown or changing access patterns | Milliseconds | Auto-optimized |
+| **S3 Standard-IA** | Infrequently accessed, rapid retrieval | Milliseconds | Lower storage |
+| **S3 One Zone-IA** | Infrequently accessed, single AZ | Milliseconds | Lowest IA |
+| **S3 Glacier Instant** | Archive with instant retrieval | Milliseconds | Very low |
+| **S3 Glacier Flexible** | Long-term archive | Minutes to hours | Very low |
+| **S3 Glacier Deep Archive** | Longest-term archive | 12–48 hours | Lowest |
+
+#### S3 Key Features
+
+- **Versioning** — keep multiple versions of an object
+- **Lifecycle Policies** — automatically transition objects between storage classes
+- **Server-Side Encryption (SSE)** — encrypt data at rest (SSE-S3, SSE-KMS, SSE-C)
+- **Bucket Policies** — JSON-based access control at the bucket level
+- **Access Control Lists (ACLs)** — fine-grained object-level access
+- **Static Website Hosting** — host a static website directly from S3
+- **Replication** — Cross-Region Replication (CRR) and Same-Region Replication (SRR)
+- **Transfer Acceleration** — uses CloudFront edge locations for faster uploads
+
+> 💡 S3 provides **99.999999999% (11 nines)** of durability.
+
+---
+
+### 💾 Amazon EBS (Elastic Block Store)
+
+**Block storage** volumes that attach to EC2 instances — like a virtual hard drive.
+
+| Volume Type | Use Case | Max IOPS |
+|------------|---------|----------|
+| **gp3** (General Purpose SSD) | Most workloads, baseline performance | 16,000 |
+| **gp2** (General Purpose SSD) | General purpose, legacy | 16,000 |
+| **io2 / io1** (Provisioned IOPS SSD) | I/O-intensive databases | 64,000 |
+| **st1** (Throughput HDD) | Big data, data warehouses | 500 |
+| **sc1** (Cold HDD) | Infrequently accessed data | 250 |
+
+**Key Facts:**
+- EBS volumes are tied to a **single AZ**
+- Can be **snapshotted** to S3 for backup and replication
+- Snapshots are **incremental** (only changed blocks are saved)
+- Can increase volume size **without downtime**
+
+---
+
+### 📁 Amazon EFS (Elastic File System)
+
+**Managed NFS file system** that can be mounted by multiple EC2 instances simultaneously across AZs.
+
+- **Automatically scales** — no capacity to provision
+- **Multi-AZ** access by default (Regional)
+- **Storage classes:** EFS Standard, EFS Infrequent Access (IA)
+- Accessed via **Mount Targets** (one per AZ)
+- Linux-based workloads only (NFS protocol)
+
+> 💡 **EFS vs EBS:** EFS = shared file system (many EC2s). EBS = dedicated block storage (one EC2).
+
+---
+
+### 🏔️ Amazon S3 Glacier
+
+Long-term, low-cost **archival storage** for data that is rarely accessed.
+
+| Option | Retrieval Time |
+|--------|---------------|
+| **Expedited** | 1–5 minutes |
+| **Standard** | 3–5 hours |
+| **Bulk** | 5–12 hours |
+
+**Vault Lock** — enforce compliance controls with a locked policy (WORM — Write Once, Read Many).
+
+---
+
+### 🔄 AWS Storage Gateway
+
+Hybrid cloud storage service that connects **on-premises environments to AWS cloud storage**.
+
+| Type | Description |
+|------|-------------|
+| **File Gateway** | NFS/SMB interface to S3 |
+| **Volume Gateway** | iSCSI block storage backed by S3 and EBS snapshots |
+| **Tape Gateway** | Virtual tape library backed by S3 Glacier |
+
+---
+
+### ❄️ AWS Snow Family
+
+Physical devices for **data migration** and **edge computing** when internet transfer is impractical.
+
+| Device | Capacity | Use Case |
+|--------|----------|---------|
+| **Snowcone** | 8 TB usable | Small, portable — rugged edge locations |
+| **Snowball Edge Storage** | 80 TB usable | Large data migration, edge storage |
+| **Snowball Edge Compute** | 80 TB + GPU | Edge computing + ML |
+| **Snowmobile** | Up to 100 PB | Massive data center migration (truck!) |
+
+> 💡 **Rule of thumb:** If data transfer would take more than a week, use Snowball.
+
+---
+
+### 🗂️ Amazon FSx
+
+Fully managed **third-party file systems** on AWS.
+
+| Service | File System | Use Case |
+|---------|-------------|---------|
+| **FSx for Windows** | Windows File Server | Windows workloads, Active Directory integration |
+| **FSx for Lustre** | Lustre | High-performance computing (HPC), ML, media processing |
+| **FSx for NetApp ONTAP** | NetApp ONTAP | Enterprise storage features |
+| **FSx for OpenZFS** | OpenZFS | Linux-based workloads |
+
+---
+
+## Module 10: AWS Pricing, Billing & Cloud Economics
+
+### 💵 AWS Pricing Fundamentals
+
+AWS follows three fundamental pricing principles:
+
+```
+┌─────────────────────────────────────────────────┐
+│           AWS Pricing Principles                 │
+│                                                  │
+│  1. Pay for what you use                         │
+│  2. Pay less when you reserve                    │
+│  3. Pay less with volume-based discounts         │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+### 🧮 Cost Drivers by Service Type
+
+| Category | What You Pay For |
+|----------|-----------------|
+| **Compute (EC2)** | Instance hours, instance type, OS, region |
+| **Storage (S3)** | GB stored per month, requests, data retrieval, transfer out |
+| **Data Transfer** | Inbound: FREE · Outbound: charged by GB · Between AZs: charged |
+| **Databases (RDS)** | Instance hours, storage, multi-AZ, backups, data transfer |
+| **Lambda** | Number of requests + duration (per millisecond) |
+
+> 💡 **Data transfer IN** to AWS is always **free**. **Data transfer OUT** incurs charges.
+
+---
+
+### 🛠️ AWS Pricing Tools
+
+| Tool | Purpose |
+|------|---------|
+| **AWS Pricing Calculator** | Estimate costs for your planned AWS architecture before you build |
+| **AWS Cost Explorer** | Visualize and analyze your actual AWS spend |
+| **AWS Budgets** | Set spend thresholds and get alerts |
+| **AWS Cost and Usage Report** | Detailed billing data for analysis |
+| **AWS Trusted Advisor** | Cost optimization recommendations |
+
+---
+
+### 💰 Ways to Reduce AWS Costs
+
+#### 1. Right Sizing
+Match EC2 instance types to your actual workload — avoid over-provisioning.
+- Use CloudWatch metrics to identify underutilized instances
+- Downsize or terminate idle resources
+
+#### 2. Increase Elasticity
+- Use **Auto Scaling** to scale in during low demand
+- Schedule scaling for predictable patterns
+- Use **Spot Instances** for flexible, fault-tolerant workloads
+
+#### 3. Optimal Pricing Model
+- **Reserved Instances** for steady-state workloads (save up to 75%)
+- **Savings Plans** for flexible compute usage (save up to 66%)
+- **Spot Instances** for batch and fault-tolerant jobs (save up to 90%)
+
+#### 4. Savings Plans
+
+| Type | Flexibility | Savings |
+|------|-------------|---------|
+| **Compute Savings Plans** | Any instance family, size, region, OS | Up to 66% |
+| **EC2 Instance Savings Plans** | Specific instance family in a region | Up to 72% |
+| **SageMaker Savings Plans** | SageMaker usage | Up to 64% |
+
+---
+
+### 🌍 AWS Global Infrastructure & Pricing
+
+**Pricing varies by Region** — choose the right region considering:
+- Proximity to users (latency)
+- Data residency requirements
+- Feature availability
+- Cost (some regions are cheaper than others)
+
+**AWS Free Tier** — Available for 12 months for new accounts:
+
+| Type | Example |
+|------|---------|
+| **Always Free** | Lambda (1M requests/month), DynamoDB (25 GB) |
+| **12 Months Free** | EC2 (750 hrs/month t2.micro), S3 (5 GB) |
+| **Trials** | Short-term free trials for specific services |
+
+---
+
+### 📊 Total Cost of Ownership (TCO)
+
+When comparing on-premises to AWS cloud:
+
+**On-Premises Costs Include:**
+- Server hardware purchase and refresh
+- Data center facilities (power, cooling, space)
+- Network equipment
+- IT staff for maintenance
+- Software licenses
+
+**AWS Cloud Advantages:**
+- No upfront capital expenditure (CapEx → OpEx)
+- Pay only for what you use
+- Economies of scale
+- Reduced operational overhead
+
+> 💡 Use the **AWS TCO Calculator** (now part of AWS Pricing Calculator) to compare on-premises vs. cloud costs.
+
+---
+
+### 📈 AWS Well-Architected Framework
+
+The five pillars of a well-architected AWS workload:
+
+| Pillar | Focus |
+|--------|-------|
+| **Operational Excellence** | Run and monitor systems, continuously improve |
+| **Security** | Protect information, systems, and assets |
+| **Reliability** | Recover from failures, meet demand |
+| **Performance Efficiency** | Use resources efficiently |
+| **Cost Optimization** | Avoid unnecessary costs |
+| **Sustainability** *(6th pillar)* | Minimize environmental impact |
+
+---
+
+### 🌐 AWS Compliance & Governance
+
+**AWS Artifact**
+Self-service portal to access AWS **compliance reports and certifications**:
+- SOC 1, 2, 3
+- ISO 27001
+- PCI-DSS
+- HIPAA
+- FedRAMP
+
+**AWS Control Tower**
+Automates the setup of a secure **multi-account environment** with guardrails.
+
+**AWS Config**
+Continuously evaluates resource configurations against **compliance rules**.
+
+**AWS Audit Manager**
+Continuously audits AWS usage to simplify **risk and compliance assessments**.
+
+---
+
+## 🎯 Quick Reference: Key AWS Service Comparisons
+
+### Compute
+| Need | Service |
+|------|---------|
+| Full OS control | EC2 |
+| Just deploy code | Elastic Beanstalk |
+| Event-driven functions | Lambda |
+| Containers without managing servers | Fargate |
+| Simple VPS | Lightsail |
+
+### Storage
+| Need | Service |
+|------|---------|
+| Object storage | S3 |
+| Block storage for EC2 | EBS |
+| Shared file storage | EFS |
+| Long-term archival | S3 Glacier |
+| Migrate petabytes | Snowball |
+
+### Database
+| Need | Service |
+|------|---------|
+| Relational (MySQL, PostgreSQL) | RDS |
+| NoSQL key-value | DynamoDB |
+| In-memory cache | ElastiCache |
+| Graph data | Neptune |
+| Document (MongoDB-compatible) | DocumentDB |
+| Immutable ledger | QLDB |
+
+### Security
+| Need | Service |
+|------|---------|
+| User access management | IAM |
+| DDoS protection | Shield |
+| Web traffic filtering | WAF |
+| Threat detection | GuardDuty |
+| Vulnerability scanning | Inspector |
+| Sensitive data discovery | Macie |
+| Encryption keys | KMS |
+| Secrets management | Secrets Manager |
+
+---
+
+## 📝 Exam Tips & Tricks
+
+> **Remember the key distinctions:**
+
+- **CloudTrail** = WHO did WHAT (audit log) | **CloudWatch** = HOW is it performing (metrics)
+- **Security Groups** = Stateful (instance level) | **NACLs** = Stateless (subnet level)
+- **IAM Role** = Temporary, assumable | **IAM User** = Long-term, permanent credentials
+- **S3** = Object storage | **EBS** = Block storage | **EFS** = File storage
+- **Shield Standard** = Free, automatic | **Shield Advanced** = Paid, with DRT support
+- **Direct Connect** = Private, dedicated line | **Site-to-Site VPN** = Encrypted over internet
+- **Reserved Instances** = Commit to 1-3 years, save up to 75% | **Spot** = Bid on spare capacity, save up to 90%
+- **Fargate** = Serverless containers | **EC2** = You manage servers | **Lambda** = Serverless functions
+
+---
+
+*AWS Cloud Practitioner Study Notes (CLF-C02) • Last updated: 2025*
